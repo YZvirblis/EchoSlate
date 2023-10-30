@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Comments = () => {
+const Comments = ({ slug }: any) => {
     return (
         <h1>Comments</h1>
     )
