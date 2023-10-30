@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
-const CommentsForm = () => {
+const CommentsForm = ({ slug }: any) => {
+    const [error, setError] = useState(false)
+    const [localStorage, setLocalStorage] = useState(null)
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+    const commentEl = useRef()
+    const nameEl = useRef()
+    const emailEl = useRef()
+    const storeDataEl = useRef()
     return (
-        <h1>CommentsForm</h1>
+        <div className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8'>
+            <h3 className='text-xl mb-8 font-semibold border-b pb-4'>
+                Comment
+            </h3>
+            <div className='grid grid-cols-1 gap-4 mb-4'>
+
+            </div>
+            <div className='grid grid-cols-1 gap-4 mb-4'>
+
+            </div>
+            <div className='grid grid-cols-1 gap-4 mb-4'>
+
+            </div>
+        </div>
     )
 }
 
