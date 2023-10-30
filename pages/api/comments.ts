@@ -1,6 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+const graphqlToken = process.env.GRAPHCMS_TOKEN;
 
 /** *************************************************************
  * Any file inside the folder pages/api is mapped to /api/* and  *
@@ -9,9 +10,9 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export default async function comments(req: any, res: any) {
   //@ts-ignore
-  const GraphQLClient = new GraphQLClient(graphqlAPI, {
+  const graphQLClient = new GraphQLClient(graphqlAPI, {
     headers: {
-      authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+      authorization: `Bearer ${graphqlToken}`,
     },
   });
 
@@ -35,7 +36,7 @@ export default async function comments(req: any, res: any) {
     }
   `;
   try {
-    const result = await GraphQLClient.request(query, req.body);
+    const result = await graphQLClient.request(query, req.body);
 
     return res.status(200).send(result);
   } catch (error) {
