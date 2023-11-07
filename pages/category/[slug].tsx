@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import { getCategories, getCategoryPost } from '@/Services/Index';
 import { PostCard, Categories, Loader } from "@/Components/";
+import Head from '@/Components/Head';
 
 const CategoryPost = ({ posts }: any) => {
     const router = useRouter();
@@ -13,6 +14,7 @@ const CategoryPost = ({ posts }: any) => {
 
     return (
         <div className="container mx-auto px-10 mb-8">
+            <Head />
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="col-span-1 lg:col-span-8">
                     { posts.map((post: any, index: number) => (
