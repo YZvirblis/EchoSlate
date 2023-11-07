@@ -5,6 +5,7 @@ const PostDetail = ({ post }: any) => {
 
     const getContentFragment = (index: number, text: any, obj: any, type?: any) => {
         let modifiedText = text;
+        console.log(modifiedText)
 
         if (obj) {
             if (obj.bold) {
@@ -24,12 +25,13 @@ const PostDetail = ({ post }: any) => {
             case 'heading-three':
                 return <h3 key={ index } className="text-xl font-semibold mb-4">{ modifiedText.map((item: any, i: number) => <React.Fragment key={ i }>{ item }</React.Fragment>) }</h3>;
             case 'paragraph':
-                return <p key={ index } className="mb-8">{ modifiedText.map((item: any, i: number) => <React.Fragment key={ i }>{ item }</React.Fragment>) }</p>;
+                return <p key={ index } className="mb-8">{ modifiedText.map((item: any, i: number) => { return <React.Fragment key={ i }>{ item }</React.Fragment> }) }</p>;
             case 'heading-four':
                 return <h4 key={ index } className="text-md font-semibold mb-4">{ modifiedText.map((item: any, i: number) => <React.Fragment key={ i }>{ item }</React.Fragment>) }</h4>;
             case 'image':
                 return (
                     <img
+                        className='mb-8'
                         key={ index }
                         alt={ obj.title }
                         height={ obj.height }
@@ -64,7 +66,7 @@ const PostDetail = ({ post }: any) => {
                         <span>{ moment(post.createdAt).format('MMM DD, YYYY') }</span>
                     </div>
                 </div>
-                <h1 className='mb-8 text-3xl font-semibold'>
+                <h1 className='mb-8'>
                     { post.title }
                     { post.content.raw.children.map((typeObj: any, index: number) => {
                         const children = typeObj.children.map((item: any, itemIndex: number) => getContentFragment(itemIndex, item.text, item))
