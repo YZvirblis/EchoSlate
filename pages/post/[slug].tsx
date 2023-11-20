@@ -6,7 +6,6 @@ import Head from '@/Components/Head'
 
 const PostDetails = ({ post }: any) => {
     const router = useRouter();
-    console.log(post)
     if (router.isFallback) {
         return <Loader />;
     }
