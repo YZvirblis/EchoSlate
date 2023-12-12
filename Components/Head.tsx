@@ -30,6 +30,7 @@ const Head = ({ slug, excerpt }: any) => {
                 <meta property='og:title' content={ title } />
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta property="og:image" content="https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/KV7S03cStuXb4zCmQ7XQ" />
                 <link rel="icon" href="/favicon.ico" />
                 {/* Add any other additional tags here */ }
             </NextHead>
